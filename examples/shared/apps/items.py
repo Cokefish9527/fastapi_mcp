@@ -4,7 +4,7 @@ Simple example of using FastAPI-MCP to add an MCP server to a FastAPI app.
 
 from fastapi import FastAPI, HTTPException, Query
 from pydantic import BaseModel
-from typing import List, Optional
+from typing import List, Optional, Dict
 
 
 app = FastAPI()
@@ -18,7 +18,7 @@ class Item(BaseModel):
     tags: List[str] = []
 
 
-items_db: dict[int, Item] = {}
+items_db: Dict[int, Item] = {}
 
 
 @app.get("/items/", response_model=List[Item], tags=["items"], operation_id="list_items")

@@ -15,9 +15,15 @@ except Exception:  # pragma: no cover
 from .server import FastApiMCP
 from .types import AuthConfig, OAuthMetadata
 
+# 导出external子模块
+try:
+    from .external import n8n
+except ImportError:
+    pass
 
 __all__ = [
     "FastApiMCP",
     "AuthConfig",
     "OAuthMetadata",
+    "n8n",
 ]
